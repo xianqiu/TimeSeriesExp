@@ -35,8 +35,8 @@ def __sum_items(coef, var):
 
 def arma(data_size, phi, theta, delta):
     x = [1] * data_size
+    e = np.random.normal(0, 1, data_size)
     for t in range(data_size):
-        e = np.random.normal(0, 1, t+1)
         x[t] = delta + __sum_items(phi, x[0:t]) + __sum_items(theta, e[0:t]) + e[t]
     return x
 
